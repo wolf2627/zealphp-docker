@@ -1,0 +1,26 @@
+// Refer official documentation for detailed information : https://php.zeal.ninja
+// Docker image : https://hub.docker.com/r/wolf2627/zealphp
+{
+	"name": "ZealPHP",
+	"image": "wolf2627/zealphp:latest",
+	"workspaceFolder": "/home/zealphp/app",
+	"mounts": [
+		"source=${localWorkspaceFolder},target=/home/zealphp/app,type=bind"
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"felixfbecker.php-debug",
+				"bmewburn.vscode-intelephense-client"
+			]
+		},
+		"settings": {
+			"terminal.integrated.shell.linux": "/bin/bash"
+		}
+	},
+	"forwardPorts": [
+		8080
+	],
+	"postCreateCommand": "zealphp",
+	"remoteUser": "zealphp"
+}
